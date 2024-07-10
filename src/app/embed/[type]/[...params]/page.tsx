@@ -55,11 +55,11 @@ export default async function Embed(p: RootParams) {
   const type_ = p.params.type;
   const sr = p.searchParams.sr;
   const ds = p.searchParams.ds|| 'pt';
-
-  const [meta, sources] = await Promise.all([
+  const [meta,sources] = await Promise.all([
     getTmdb(id, type_),
     getScoper(id, ss, ep, sr),
-  ]);
+  ])
+  
 
   const textTracks:TextTrack[]|any = 
     sources.subs.map((obj) => {
@@ -74,7 +74,7 @@ export default async function Embed(p: RootParams) {
       return o;
     })
   
-  // const res = await getTmdb(1399,'tv')
+  const res = await getTmdb(1399,'tv')
   return (
     <div>
       {/* {JSON.stringify(textTracks)} */}

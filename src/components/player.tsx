@@ -3,13 +3,13 @@ import "@vidstack/react/player/styles/default/theme.css";
 import "@vidstack/react/player/styles/default/layouts/audio.css";
 import "@vidstack/react/player/styles/default/layouts/video.css";
 import { RootPlayer, TextTrack } from "./types/player";
-import { MediaPlayer, MediaProvider, Poster, Track } from "@vidstack/react";
+import { MediaPlayer, MediaProvider, PlayButton, Poster, Track } from "@vidstack/react";
+import { PauseIcon,PlayIcon } from "@vidstack/react/types/vidstack-react.js";
 import {
   DefaultVideoLayout,
   defaultLayoutIcons,
 } from "@vidstack/react/player/layouts/default";
 import { playerObj } from "@/utils";
-
 export default function Player(p: {
   src: string;
   poster?: string;
