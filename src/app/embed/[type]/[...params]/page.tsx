@@ -5,6 +5,7 @@ import { GetTmdb } from "./types/getTmdb";
 import { GetScoper } from "./types/getScoper";
 import Player from "@/components/player";
 import { TextTrack } from "@/components/types/player";
+import PlayerRenderer from "./playerRendere";
 
 export interface RootParams {
   params: Params;
@@ -25,7 +26,7 @@ async function getTmdb(id: string | number, type: string): Promise<GetTmdb> {
   const res = await fetch(`${rootTmdbUrl}/${type}/${id}?api_key=${api_key}`);
   return res.json();
 }
-async function getScoper(
+ async function getScoper(
   id: string,
   ss: string | null = null,
   ep: string | null = null,
@@ -66,29 +67,31 @@ export default async function Embed(p: RootParams) {
   console.log(' sources log :' + sources)
   console.log(" tmdb : " +meta )
 
-  const textTracks:TextTrack[]|any = sources &&
-    sources.subs.map((obj) => {
-      const o: TextTrack = {
-        kind: "subtitle",
-        language: obj.name,
-        src: obj.link,
-        type: "subs",
-        default: obj.name == ds ? true : false,
-        label: obj.name,
-      };
-      return o;
-    })
+  // const textTracks:TextTrack[]|any = sources &&
+  //   sources.subs.map((obj) => {
+  //     const o: TextTrack = {
+  //       kind: "subtitle",
+  //       language: obj.name,
+  //       src: obj.link,
+  //       type: "subs",
+  //       default: obj.name == ds ? true : false,
+  //       label: obj.name,
+  //     };
+  //     return o;
+  //   })
   
   const res = await getTmdb(1399,'tv')
   return (
     <div>
       {/* {JSON.stringify(textTracks)} */}
 
-      <Player
+      {/* <Player
         src={sources.val}
         poster={`${rootTmdbImage}/original/${meta.backdrop_path}`}
         textTracks={textTracks}
-      ></Player>
+      ></Player> */}
+
+      <PlayerRenderer id={id} ss={ss} ep = {ep} sr = {sr} ds = {ds} backdrop={`${rootTmdbImage}/original/${meta.backdrop_path}`} ></PlayerRenderer>
     </div>
   );
 }

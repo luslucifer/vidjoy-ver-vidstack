@@ -10,6 +10,10 @@ import {
   defaultLayoutIcons,
 } from "@vidstack/react/player/layouts/default";
 import { playerObj } from "@/utils";
+
+
+
+
 export default function Player(p: {
   src: string;
   poster?: string;

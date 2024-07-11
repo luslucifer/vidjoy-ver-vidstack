@@ -1,8 +1,9 @@
 import { RootPlayer } from "./components/types/player";
 
 export const rootTmdbImage = 'https://image.tmdb.org/t/p/'
-export const rootScoper = "https://soaper-tv.vidsrcproxy.workers.dev/fetch";
-// export const rootScoper = "https://soaper-tv.valentine8406.workers.dev/fetch";
+// export const rootScoper = "https://soaper-tv.vidsrcproxy.workers.dev/fetch";
+export const rootScoper = "https://soaper-tv.valentine8406.workers.dev/fetch";
+export const rootThumbnail = 'http://15.235.184.109:5000/thumbnails'
 export var playerObj: RootPlayer = {
   $schema: "https://vidstack.io/player/schema",
   player: {
