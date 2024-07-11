@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { GetScoper } from "./types/getScoper";
-import { rootScoper, rootThumbnail } from "@/utils";
+import { rootProxy, rootScoper, rootThumbnail } from "@/utils";
 import { TextTrack } from "@/components/types/player";
 import Player from "@/components/player";
 
@@ -62,7 +62,7 @@ export default function PlayerRenderer(p:{id:string , ss:string|null , ep :strin
         
         fetch(`${rootThumbnail}/${path}`).then(res => res.json()).then((data) =>{
             try {
-                setThumbnail(`https://thubnail.vidsrcproxy.workers.dev/${encodeURIComponent(data.thubnail)}`)
+                setThumbnail(`${rootProxy}/${encodeURIComponent(data.thubnail)}`)
             } catch (error) {
                 
             }
@@ -73,7 +73,6 @@ export default function PlayerRenderer(p:{id:string , ss:string|null , ep :strin
 
     return (
         <div>
-            {thumbnail}
             {scoper &&
                         <Player src={scoper.val} poster={p.backdrop} textTracks={subs} thumbnails={thumbnail}  ></Player>
 

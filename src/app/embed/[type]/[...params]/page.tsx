@@ -26,7 +26,7 @@ async function getTmdb(id: string | number, type: string): Promise<GetTmdb> {
   const res = await fetch(`${rootTmdbUrl}/${type}/${id}?api_key=${api_key}`);
   return res.json();
 }
- async function getScoper(
+export async function getScoper(
   id: string,
   ss: string | null = null,
   ep: string | null = null,
@@ -91,7 +91,7 @@ export default async function Embed(p: RootParams) {
         textTracks={textTracks}
       ></Player> */}
 
-      <PlayerRenderer id={id} ss={ss} ep = {ep} sr = {sr} ds = {ds} backdrop={`${rootTmdbImage}/original/${meta.backdrop_path}`} ></PlayerRenderer>
+      <PlayerRenderer id={id} ss={ss} ep = {ep} sr = {sr} ds = {ds} backdrop={meta.backdrop_path} ></PlayerRenderer>
     </div>
   );
 }
