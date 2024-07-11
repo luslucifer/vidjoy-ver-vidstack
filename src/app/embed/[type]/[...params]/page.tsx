@@ -63,7 +63,7 @@ export default async function Embed(p: RootParams) {
 
   console.log(' sources log :' + sources)
 
-  const textTracks:TextTrack[]|any = 
+  const textTracks:TextTrack[]|any = sources &&
     sources.subs.map((obj) => {
       const o: TextTrack = {
         kind: "subtitle",
