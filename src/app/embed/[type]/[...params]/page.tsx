@@ -61,6 +61,8 @@ export default async function Embed(p: RootParams) {
   ])
   
 
+  console.log(' sources log :' + sources)
+
   const textTracks:TextTrack[]|any = 
     sources.subs.map((obj) => {
       const o: TextTrack = {
