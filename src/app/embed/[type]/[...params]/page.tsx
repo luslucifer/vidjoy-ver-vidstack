@@ -1,4 +1,4 @@
-'use client '
+
 
 import { api_key, rootScoper, rootTmdbImage, rootTmdbUrl } from "@/utils";
 import { GetTmdb } from "./types/getTmdb";
@@ -64,6 +64,7 @@ export default async function Embed(p: RootParams) {
   
 
   console.log(' sources log :' + sources)
+  console.log(" tmdb : " +meta )
 
   const textTracks:TextTrack[]|any = sources &&
     sources.subs.map((obj) => {
