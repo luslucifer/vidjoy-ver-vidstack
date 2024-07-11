@@ -1,3 +1,5 @@
+'use client '
+
 import { api_key, rootScoper, rootTmdbImage, rootTmdbUrl } from "@/utils";
 import { GetTmdb } from "./types/getTmdb";
 import { GetScoper } from "./types/getScoper";
