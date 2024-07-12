@@ -26,7 +26,7 @@ async function getTmdb(id: string | number, type: string): Promise<GetTmdb> {
   const res = await fetch(`${rootTmdbUrl}/${type}/${id}?api_key=${api_key}`);
   return res.json();
 }
-export async function getScoper(
+ async function getScoper(
   id: string,
   ss: string | null = null,
   ep: string | null = null,
