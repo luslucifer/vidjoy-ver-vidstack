@@ -33,6 +33,7 @@ export default function Player(p: {
       playsInline
       title="Sprite Fight"
       poster={p.poster}
+      className="h-screen"
     >
       <MediaProvider>
         <Poster className="vds-poster" />
