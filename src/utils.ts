@@ -2,7 +2,8 @@ import { RootPlayer } from "./components/types/player";
 
 export const rootTmdbImage = 'https://image.tmdb.org/t/p/'
 // export const rootScoper = "https://soaper-tv.vidsrcproxy.workers.dev/fetch";
-export const root = 'https://soaper-tv.valentine8406.workers.dev'
+// export const root = 'https://soaper-tv.valentine8406.workers.dev'
+export const root  = 'https://soaper-tv.vidsrcproxy.workers.dev'
 export const rootScoper = root + "/fetch";
 export const rootProxy = root + '/proxy'
 
