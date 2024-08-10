@@ -12,13 +12,18 @@ export default function PlayerRenderer(p:{id:string , ss:string|null , ep :strin
     const [scoper, setScoper] = useState<GetScoper | null>(null);
     const [subs,setSubs] = useState<TextTrack[]>()
     const [thumbnail,setThumbnail] = useState<string>()
+    const [ended , setEnded] = useState<boolean>(false)
 
     useEffect(() => {
-
+      // console.log(ended)
+      if (ended){
+        console.log('hero_alam')
+      }
 
         let path = `${id}`;
   if (ss && ep) {
-    path = `${path}/${ss}/${ep}`;
+    path = `${path}/${ss}/${ended?Number(ep)+1:ep}`;
+    setEnded(false)
   }
   if (sr) {
     path = `${path}?sr=${sr}`;
@@ -55,6 +60,7 @@ export default function PlayerRenderer(p:{id:string , ss:string|null , ep :strin
     }, [id,ss,ep,sr]); // Empty dependency array ensures this effect runs only once
 
     useEffect(()=>{
+      
         let path = `${id}`;
         if (ss && ep) {
           path = `${path}?ss=${ss}&ep=${ep}`;
@@ -69,12 +75,12 @@ export default function PlayerRenderer(p:{id:string , ss:string|null , ep :strin
         }
             
         )
-    },[id,ss,ep])
+    },[id,ss,ep,ended])
 
     return (
         <div>
             {scoper &&
-                        <Player src={scoper.val} poster={p.backdrop} textTracks={subs} thumbnails={thumbnail}  ></Player>
+                        <Player src={scoper.val} poster={p.backdrop} textTracks={subs} thumbnails={thumbnail} setEnded={setEnded}  ></Player>
 
             }
         </div>
